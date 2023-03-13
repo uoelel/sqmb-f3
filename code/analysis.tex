@@ -1,0 +1,168 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+  \setmainfont[]{Arial}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={SQMB 2022/23 Formative Assessment F3},
+  pdfauthor={EXAM NUMBER},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{SQMB 2022/23 Formative Assessment F3}
+\author{EXAM NUMBER}
+\date{2023-03-13}
+
+\begin{document}
+\maketitle
+
+\textbf{DEADLINE: THURSDAY 6 APRIL AT NOON}
+
+\hypertarget{overview}{%
+\section{Overview}\label{overview}}
+
+In this assessment, you'll be working with corpus data on the English
+dative alternation. In English, a number of ditransitive verbs (e.g.,
+\emph{give}, \emph{feed}, \emph{teach}) have two different ways to
+express the recipient of the action:
+
+\begin{itemize}
+\tightlist
+\item
+  as a \textbf{prepositional phrase (PP)}: The child gives a treat
+  \emph{to the dog}.
+\item
+  as a \textbf{noun phrase (NP)}: The child gives \emph{the dog} a
+  treat.
+\end{itemize}
+
+In these examples, \emph{the child} is the giver, \emph{the dog} is the
+recipient, and \emph{a treat} is the theme.
+
+The data you'll be analysing can be found in \texttt{data/dative.csv}.
+It comes from \href{https://web.stanford.edu/~bresnan/qs-submit.pdf}{a
+2005 study by Joan Bresnan and colleagues}, and it was gathered from the
+Switchboard corpus and the Treebank Wall Street Journal collection.
+
+The data frame contains the following columns:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{RealizationRec}: Whether the sentence's recipient is realised
+  as a noun phrase (NP) or a prepositional phrase (PP).
+\item
+  \texttt{Verb}: The verb in the sentence.
+\item
+  \texttt{AnimacyOfRec}: Animacy of the recipient (animate
+  vs.~inanimate).
+\item
+  \texttt{AnimacyOfTheme}: Animacy of the theme (animate vs.~inanimate).
+\item
+  \texttt{LengthOfTheme}: Number of words that make up the theme.
+\end{itemize}
+
+Your task is to answer the following research question: \textbf{What
+roles do the animacy of the theme and the length of the theme play for
+the realisation of the recipient?}
+
+Some pointers:
+
+\begin{itemize}
+\item
+  \textbf{Think about the variables that'll go into the analysis:} Which
+  is the outcome variable? What kind of variable is it? And which are
+  the predictors? What kinds of variable are they?
+\item
+  \textbf{Summarise the relevant data:} Pick appropriate summary
+  measures depending on the nature of the variable (mean, median, mode;
+  standard deviation, range).
+\item
+  \textbf{Plot the data:} Use appropriate plots to visualise patterns in
+  the data that are relevant to the research question above. Concisely
+  describe the patterns you see.
+\item
+  \textbf{Prepare the data for analysis:} How will you set up your
+  outcome variable? How will categorical predictors be coded/ordered?
+  What will this mean for their interpretation? Will you transform
+  numeric predictors, and if yes, how?
+\item
+  \textbf{Fit a model to the data:} What distribution family should you
+  use? What model formula will you use? (Optional: What does the
+  mathematical model specification look like?)
+\item
+  \textbf{Report the model and its estimates:} Describe the model that
+  you fit. Summarise its estimates/posteriors in writing and using
+  plots.
+\item
+  \textbf{Address the research question:} Interpret the model's
+  estimates. What do they mean for the research question?
+\end{itemize}
+
+When you are satisfied, you can \textbf{submit your project} by:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  rendering your Rmd file to PDF, and
+\item
+  uploading it to Turnitin via Learn.
+\end{enumerate}
+
+\end{document}
